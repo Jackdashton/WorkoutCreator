@@ -1,0 +1,10 @@
+p {
+  text-align: center;
+  color: black;
+  background-color: aqua;
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+}
+
+/* NOTE: button component next, but one button for each function or one then use props? */
