@@ -7,4 +7,8 @@ p {
   width: 50%;
 }
 
+button {
+  background-color: blue;
+}
+
 /* NOTE: button component next, but one button for each function or one then use props? */
