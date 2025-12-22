@@ -6,7 +6,9 @@ function ExerciseList( { array, onDelete, onEdit } ) {
             {array.map((exercise) => {
                 return (
                     <div key={exercise.id}>
-                        {exercise.name}
+                        {exercise.name + "-"}
+                        {"   Sets: " + exercise.sets}
+                        {"   Reps: " + exercise.reps}
                         {/* Delete Button */}
                         <button onClick={() => onDelete(exercise.id)}>
                             Delete 

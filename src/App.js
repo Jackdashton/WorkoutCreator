@@ -8,7 +8,7 @@ import ExerciseList from './ExerciseList';
 function App() {
 
   // State
-  const [exerciseList, setExerciseList] = useState([{id:1, name:"Bench Press"}, {id:2, name:"Back Squat"}, {id:3, name:"Sumo Deadlift"} ]);
+  const [exerciseList, setExerciseList] = useState([{id:1, name:"Bench Press", sets:3, reps:8, isWU:false}, {id:2, name:"Back Squat", sets:3, reps:8, isWU:false}, {id:3, name:"Sumo Deadlift", sets:3, reps:8, isWU:true} ]);
 
   // Helper Functions
   function handleDelete(id) {
