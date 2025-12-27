@@ -5,6 +5,7 @@ import Button from './Button';
 import { useState } from 'react';
 import ExerciseList from './ExerciseList';
 import AddExerciseForm from './AddExerciseForm';
+import { v4 as uuid } from 'uuid';
 
 function App() {
 
@@ -36,9 +37,19 @@ function App() {
     setExerciseList(newExerciseList); 
   };
 
-  function handleCreate() {
+  function handleCreateClick() {
     setShowAddExerciseForm(true);
     // Handle create should only flip boolean - no jsx inside
+  }
+
+  function handleAddExercise(exercise) {
+
+    // const newID = uuid();
+    const newID = Math.max(...exerciseList.map(e => e.id)) + 1; // this isn't good - error prone - redo 
+
+    setExerciseList([...exerciseList, {...exercise, id:newID}]);
+
+    setShowAddExerciseForm(false);
   }
 
   return (
@@ -53,14 +64,13 @@ function App() {
         onEdit={handleEdit} 
         />
 
-        {showAddExerciseForm ? <AddExerciseForm /> : null}
-
         <div className='buttonrow'> 
           <Button 
             value="Add Exercise"
-            onClick={handleCreate}
+            onClick={handleCreateClick}
             />
         </div>
+        {showAddExerciseForm ? <AddExerciseForm onSubmit={handleAddExercise} /> : null}
       </div>
     </div>
   ); 

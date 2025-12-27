@@ -1,14 +1,25 @@
 import { useState } from "react";
 
-function AddExerciseForm() {
+function AddExerciseForm( {onSubmit}) {
 
     const [name, setName] = useState("");
     const [sets, setSets] = useState("");
     const [reps, setReps] = useState("");
     const [isWarmUp, setisWarmUp] = useState(false);
 
-    const handleSubmit = () => {
-        alert("connected");
+    const handleSubmit = (e) => {
+        e.preventDefault(); // stop page refresh
+        
+        const exercise = {
+        // id generated in parent. 
+        name,
+        sets: Number(sets),
+        reps: Number(reps),
+        isWU: isWarmUp,
+        };
+
+        onSubmit(exercise); // Send to App.js
+
     }
 
     return (
