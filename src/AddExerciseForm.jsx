@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddExerciseForm( {onSubmit}) {
+function AddExerciseForm( {onSubmit, onCancel}) {
 
     const [name, setName] = useState("");
     const [sets, setSets] = useState("");
@@ -22,6 +22,11 @@ function AddExerciseForm( {onSubmit}) {
 
     }
 
+    const handleCancel = () => {
+        onCancel();
+    }
+
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -38,6 +43,7 @@ function AddExerciseForm( {onSubmit}) {
                     Warm Up Set?: <input type="checkbox" checked={isWarmUp} onChange={(e) => setisWarmUp(e.target.checked)}></input>
                 </label>
                 <button type="submit">Add Exercise</button>
+                <button type="button" onClick={handleCancel}>Cancel</button>
             </form>
         </>
     );

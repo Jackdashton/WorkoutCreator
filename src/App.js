@@ -52,6 +52,10 @@ function App() {
     setShowAddExerciseForm(false);
   }
 
+  function handleCancel() {
+    setShowAddExerciseForm(false);
+  }
+
   return (
     <div>
       <div>
@@ -70,7 +74,7 @@ function App() {
             onClick={handleCreateClick}
             />
         </div>
-        {showAddExerciseForm ? <AddExerciseForm onSubmit={handleAddExercise} /> : null}
+        {showAddExerciseForm ? <AddExerciseForm onSubmit={handleAddExercise} onCancel={handleCancel} /> : null}
       </div>
     </div>
   ); 
