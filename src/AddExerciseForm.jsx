@@ -7,8 +7,24 @@ function AddExerciseForm( {onSubmit, onCancel}) {
     const [reps, setReps] = useState("");
     const [isWarmUp, setisWarmUp] = useState(false);
 
+    const [error, setError] = useState("");
+
     const handleSubmit = (e) => {
         e.preventDefault(); // stop page refresh
+
+        // Validation
+        if (!name.trim()) {
+            setError("Exercise name is required.");
+            return;
+        }
+
+        if (Number(sets) <= 0 || Number(reps) <= 0) {
+            setError("Sets and Reps must be greater than 0.");
+            return;
+        }
+
+        // So error not blank if all okay. 
+        setError("");
         
         const exercise = {
         // id generated in parent. 
@@ -30,6 +46,7 @@ function AddExerciseForm( {onSubmit, onCancel}) {
     return (
         <>
             <form onSubmit={handleSubmit}>
+                {error && <p>{error}</p>}
                 <label>
                     Name: <input value={name} onChange={(e) => setName(e.target.value)}></input>
                 </label>

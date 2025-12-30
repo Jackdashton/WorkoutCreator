@@ -12,7 +12,7 @@ function App() {
   // State
   const [exerciseList, setExerciseList] = useState([{id:1, name:"Bench Press", sets:3, reps:8, isWU:false}, {id:2, name:"Back Squat", sets:3, reps:8, isWU:false}, {id:3, name:"Sumo Deadlift", sets:3, reps:8, isWU:true} ]);
   const [showAddExerciseForm, setShowAddExerciseForm] = useState(false);
-
+  
   // Helper Functions
   function handleDelete(id) {
     const newExerciseList = exerciseList.filter(
@@ -43,18 +43,14 @@ function App() {
   }
 
   function handleAddExercise(exercise) {
-
-    // const newID = uuid();
-    const newID = Math.max(...exerciseList.map(e => e.id)) + 1; // this isn't good - error prone - redo 
-
+    const newID = uuid();
     setExerciseList([...exerciseList, {...exercise, id:newID}]);
-
     setShowAddExerciseForm(false);
-  }
+  };
 
   function handleCancel() {
     setShowAddExerciseForm(false);
-  }
+  };
 
   return (
     <div>
