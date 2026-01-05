@@ -1,5 +1,9 @@
 function ExerciseList( { array, onDelete, onEdit } ) {
 
+    function onEdit() {
+        
+    }
+
     return (
         // React must return just one element. 
         <>
