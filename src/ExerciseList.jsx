@@ -1,9 +1,5 @@
 function ExerciseList( { array, onDelete, onEdit } ) {
 
-    function onEdit() {
-        
-    }
-
     return (
         // React must return just one element. 
         <>
@@ -13,22 +9,13 @@ function ExerciseList( { array, onDelete, onEdit } ) {
                         {exercise.name + "-"}
                         {"   Sets: " + exercise.sets}
                         {"   Reps: " + exercise.reps}
+                        {/* Edit Button */}
+                        <button onClick={() => onEdit(exercise)}>
+                            Edit
+                        </button>
                         {/* Delete Button */}
                         <button onClick={() => onDelete(exercise.id)}>
                             Delete 
-                        </button>
-                        {/* Edit Button */}
-                        <button onClick={() => {
-                            const  newName = prompt(
-                                "Edit Exercise Name:",
-                                exercise.name
-                            );
-                            if (newName) {
-                                onEdit(exercise.id, newName);
-                            }
-                        }}
-                        > 
-                            Edit 
                         </button>
                     </div>
                 );

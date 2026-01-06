@@ -65,7 +65,7 @@ function App() {
         <ExerciseList 
         array={exerciseList} 
         onDelete={handleDelete}
-        onClick={() => onEdit(exercise)}
+        onEdit={handleEditClick}
         />
 
         <div className='buttonrow'> 
@@ -86,3 +86,9 @@ function App() {
 }
 
 export default App;
+
+// What next ?
+// Ability to drag - ordered list?
+// Save off multiple workouts - lift state up?
+// Improve Validation
+// UI - visuals etc

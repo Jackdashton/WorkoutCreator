@@ -3,9 +3,9 @@ import { useState } from "react";
 function ExerciseForm( {onSubmit, onCancel, initialData}) {
 
     const [name, setName] = useState(initialData.name || "");
-    const [sets, setSets] = useState(initialData.name || "");
-    const [reps, setReps] = useState(initialData.name || "");
-    const [isWarmUp, setisWarmUp] = useState(false);
+    const [sets, setSets] = useState(initialData.sets || "");
+    const [reps, setReps] = useState(initialData.reps || "");
+    const [isWarmUp, setisWarmUp] = useState( initialData.isWU || false);
 
     const [error, setError] = useState("");
 
