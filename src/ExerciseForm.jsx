@@ -12,14 +12,49 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
     const handleSubmit = (e) => {
         e.preventDefault(); // stop page refresh
 
+        const trimmedName = name.trim();
+        const setsNum = Number(sets);
+        const repsNum = Number(reps);
+
         // Validation
-        if (!name.trim()) {
+        if (!trimmedName) {
             setError("Exercise name is required.");
+            return;
+        } 
+        if (trimmedName.length < 3 || trimmedName.length > 45) {
+            setError("Name should be between 3 and 45 characters.");
             return;
         }
 
-        if (Number(sets) <= 0 || Number(reps) <= 0) {
-            setError("Sets and Reps must be greater than 0.");
+        // Sets Validation
+        if (Number.isNaN(setsNum)) {
+            setError("Must be a number.");
+            return;
+        }
+
+        if (!Number.isInteger(setsNum)) {
+            setError("Must be a whole number");
+            return;
+        }
+
+        if (setsNum <= 0 || setsNum > 20) {
+            setError("Sets must be between 1 and 20.");
+            return;
+        }
+
+        // Reps Validation
+        if (Number.isNaN(repsNum)) {
+            setError("Must be a number.");
+            return;
+        }
+
+        if (!Number.isInteger(repsNum)) {
+            setError("Must be a whole number");
+            return;
+        }
+
+        if (repsNum <= 0 || repsNum > 30) {
+            setError("Reps must be between 1 and 30.");
             return;
         }
 
@@ -28,9 +63,9 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
         
         const exercise = {
         // id generated in parent. 
-        name,
-        sets: Number(sets),
-        reps: Number(reps),
+        name: trimmedName,
+        sets: setsNum,
+        reps: repsNum,
         isWU: isWarmUp,
         };
 
