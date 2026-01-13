@@ -13,7 +13,7 @@ function App() {
   // State
   const [exerciseList, setExerciseList] = useState([{id:1, name:"Bench Press", sets:3, reps:8, isWU:false}, {id:2, name:"Back Squat", sets:3, reps:8, isWU:false}, {id:3, name:"Sumo Deadlift", sets:3, reps:8, isWU:true} ]);
   const [showExerciseForm, setShowExerciseForm] = useState(false);
-  const [initialData, setInitialData] = useState(null);
+  const [initialData, setInitialData] = useState({});
   
   // Helper Functions
   function handleDelete(id) {
@@ -30,7 +30,7 @@ function App() {
   };
 
   function handleCreateClick() {
-    setInitialData(null);
+    setInitialData({});
     setShowExerciseForm(true);
     // Handle create should only flip boolean - no jsx inside
   }
@@ -76,7 +76,7 @@ function App() {
         </div>
 
         {showExerciseForm && (
-          <AddExerciseForm 
+          <ExerciseForm 
           onSubmit={handleSubmitExercise}
           onCancel={handleCancel} 
           initialData={initialData} />) }

@@ -16,7 +16,7 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
         const setsNum = Number(sets);
         const repsNum = Number(reps);
 
-        // Validation
+        // Name Validation
         if (!trimmedName) {
             setError("Exercise name is required.");
             return;
@@ -27,8 +27,8 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
         }
 
         // Sets Validation
-        if (Number.isNaN(setsNum)) {
-            setError("Must be a number.");
+       if (sets === "") {
+            setError("Sets is required.");
             return;
         }
 
@@ -43,8 +43,8 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
         }
 
         // Reps Validation
-        if (Number.isNaN(repsNum)) {
-            setError("Must be a number.");
+        if (reps === "") {
+            setError("Reps is required.");
             return;
         }
 
