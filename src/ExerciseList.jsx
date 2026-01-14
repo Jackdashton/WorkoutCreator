@@ -1,4 +1,4 @@
-function ExerciseList( { array, onDelete, onEdit } ) {
+function ExerciseList( { array, onDelete, onEdit, onMove } ) {
 
     return (
         // React must return just one element. 
@@ -16,6 +16,12 @@ function ExerciseList( { array, onDelete, onEdit } ) {
                         {/* Delete Button */}
                         <button onClick={() => onDelete(exercise.id)}>
                             Delete 
+                        </button>
+                        <button onClick={() => onMove(exercise.id, "up")}>
+                            Up
+                        </button>
+                        <button onClick={() => onMove(exercise.id, "down")}>
+                            Down
                         </button>
                     </div>
                 );

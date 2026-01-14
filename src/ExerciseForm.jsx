@@ -93,7 +93,7 @@ function ExerciseForm( {onSubmit, onCancel, initialData}) {
                 <label>
                     Warm Up Set?: <input type="checkbox" checked={isWarmUp} onChange={(e) => setisWarmUp(e.target.checked)}></input>
                 </label>
-                <button type="submit">Add Exercise</button>
+                <button type="submit">Confirm</button>
                 <button type="button" onClick={handleCancel}>Cancel</button>
             </form>
         </>

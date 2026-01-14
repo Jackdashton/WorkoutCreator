@@ -35,9 +35,30 @@ function App() {
     // Handle create should only flip boolean - no jsx inside
   }
 
+  function handleMove(id, direction) {
+
+    const newOrderedList = [...exerciseList];
+
+    const index = newOrderedList.findIndex(e => e.id === id);
+    if (index === -1) return;
+
+    if (direction === "up" && index > 0) {
+      [newOrderedList[index - 1], newOrderedList[index]] =
+        [newOrderedList[index], newOrderedList[index - 1]];
+    }
+
+    if (direction === "down" && index < newOrderedList.length - 1) {
+      [newOrderedList[index + 1], newOrderedList[index]] =
+        [newOrderedList[index], newOrderedList[index + 1]];
+    }
+
+    setExerciseList(newOrderedList);
+
+  }
+
   function handleSubmitExercise(exercise) {
 
-    if (initialData) {
+    if (initialData?.id) {
       const updatedList = exerciseList.map((item) =>
         item.id === initialData.id ? {...exercise, id: initialData.id} : item
       );
@@ -66,6 +87,7 @@ function App() {
         array={exerciseList} 
         onDelete={handleDelete}
         onEdit={handleEditClick}
+        onMove={handleMove}
         />
 
         <div className='buttonrow'> 
