@@ -78,11 +78,11 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
+    <div className='app'>
+      <div className='appheader'>
         <h1>Workout Creator</h1>
       </div>
-      <div>
+      <div className='appbody'>
         <ExerciseList 
         array={exerciseList} 
         onDelete={handleDelete}
@@ -108,9 +108,3 @@ function App() {
 }
 
 export default App;
-
-// What next ?
-// Ability to drag - ordered list?
-// Save off multiple workouts - lift state up?
-// Improve Validation
-// UI - visuals etc

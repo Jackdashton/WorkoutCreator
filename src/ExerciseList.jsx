@@ -1,32 +1,36 @@
+import './ExerciseList.css';
+
 function ExerciseList( { array, onDelete, onEdit, onMove } ) {
 
     return (
         // React must return just one element. 
-        <>
+        <div className='exerciselist'>
             {array.map((exercise) => {
                 return (
-                    <div key={exercise.id}>
-                        {exercise.name + "-"}
-                        {"   Sets: " + exercise.sets}
-                        {"   Reps: " + exercise.reps}
+                    <div className='exerciseitem' key={exercise.id}>
+                        <div className='exerciseinfo'>
+                            {exercise.name + "-"}
+                            {"   Sets: " + exercise.sets}
+                            {"   Reps: " + exercise.reps}
+                        </div>
                         {/* Edit Button */}
-                        <button onClick={() => onEdit(exercise)}>
+                        <button className='button' onClick={() => onEdit(exercise)}>
                             Edit
                         </button>
                         {/* Delete Button */}
-                        <button onClick={() => onDelete(exercise.id)}>
+                        <button className='button' onClick={() => onDelete(exercise.id)}>
                             Delete 
                         </button>
-                        <button onClick={() => onMove(exercise.id, "up")}>
-                            Up
+                        <button className='button' onClick={() => onMove(exercise.id, "up")}>
+                            ↑
                         </button>
-                        <button onClick={() => onMove(exercise.id, "down")}>
-                            Down
+                        <button className='button' onClick={() => onMove(exercise.id, "down")}>
+                            ↓
                         </button>
                     </div>
                 );
             })}
-        </>
+        </div>
     );
 
 }

@@ -1,0 +1,33 @@
+.exerciselist {
+    border-style: solid;
+    border-color: black;
+    background-color: rgba(223, 217, 217, 0.849);
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    margin: 5%;
+    padding: 5%;
+}
+
+.exerciseitem {
+    border-style: solid;
+    border-color: black;
+    background-color: rgba(223, 217, 217, 0.849);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    border: solid;
+    border-radius: 4px;
+    border-width: 2px;
+    background-color: rgb(200, 255, 237);
+    width: 20%;
+    margin: 10px;
+}
+
+.exerciseinfo {
+    border: solid 2px;
+}

@@ -24,6 +24,13 @@
   color: white;
 }
 
+.app {
+  min-height: 100vh;          /* full screen height */
+  display: flex;
+  justify-content: center;    /* horizontal */
+  align-items: center;        /* vertical */
+}
+
 .App-link {
   color: #61dafb;
 }
